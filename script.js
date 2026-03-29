@@ -80,3 +80,31 @@ function parallax(e) {
         shape.style.transform = `translateX(${x}px) translateY(${y}px)`;
     });
 }
+/*==================== SMOOTH SCROLL FOR INTERNAL LINKS ===================*/
+const internalLinks = document.querySelectorAll('a[href^="#"]');
+
+internalLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            e.preventDefault();
+            const headerHeight = document.querySelector('.header').offsetHeight;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+            
+            // Close mobile menu if open
+            const navMenu = document.getElementById('nav-menu');
+            if (navMenu.classList.contains('show-menu')) {
+                navMenu.classList.remove('show-menu');
+            }
+        }
+    });
+});
