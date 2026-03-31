@@ -45,20 +45,29 @@
     </header>
 
     <main class="main">
-        <!-- Hero Section -->
-        <section class="home" id="home">
-            <div class="home-container container">
-                <div class="home-content reveal">
-                    <span class="home-subtitle">Hello, I'm</span>
-                    <h1 class="home-title">Muhammed<br><span class="gradient-text">Jamal</span></h1>
-                    <h3 class="home-role">Lead Software Engineer</h3>
-                    
-                    <p class="home-description">
-                        A passionate tech enthusiast and self-taught developer specializing in the <strong class="highlight">MERN</strong> stack and <strong class="highlight">.NET</strong>. Active public speaker sharing insights on modern web architecture.
-                    </p>
 
-                    <div class="home-buttons">
-                        <a href="#projects" class="btn btn-primary">
+        <!-- ===== SCROLL HERO SECTION ===== -->
+        <section class="scroll-hero" id="home">
+            <div class="scroll-hero__sticky">
+                <!-- Parallax background image -->
+                <div class="scroll-hero__img-wrap" id="heroImgWrap">
+                    <img src="jamal.jpg" alt="Muhammed Jamal" class="scroll-hero__img" id="heroImg">
+                    <div class="scroll-hero__overlay"></div>
+                </div>
+
+                <!-- Text layers that move at different scroll speeds -->
+                <div class="scroll-hero__text" id="heroText">
+                    <div class="scroll-hero__eyebrow" id="heroEyebrow">Hello, I'm</div>
+                    <h1 class="scroll-hero__name" id="heroName">
+                        Muhammed<br>
+                        <span class="gradient-text">Jamal</span>
+                    </h1>
+                    <p class="scroll-hero__role" id="heroRole">Lead Software Engineer</p>
+                    <p class="scroll-hero__sub" id="heroSub">
+                        MERN &nbsp;·&nbsp; .NET &nbsp;·&nbsp; Public Speaker
+                    </p>
+                    <div class="scroll-hero__cta" id="heroCta">
+                        <a href="#main-content" class="btn btn-primary">
                             View My Work
                             <i class="ph-bold ph-arrow-right"></i>
                         </a>
@@ -67,54 +76,28 @@
                             <i class="ph-bold ph-chat-circle"></i>
                         </a>
                     </div>
-                    
-                    <div class="home-social">
-                        <span class="social-text">Follow me</span>
-                        <div class="social-line"></div>
-                        <a href="https://linkedin.com/in/muhammedjamal" target="_blank" class="social-link" title="LinkedIn">
-                            <i class="ph-fill ph-linkedin-logo"></i>
-                        </a>
-                        <a href="https://github.com/hashirmpalliyath-pixel" target="_blank" class="social-link" title="GitHub">
-                            <i class="ph-fill ph-github-logo"></i>
-                        </a>
-                        <a href="https://www.instagram.com/__j4mlu__?igsh=YTl1MDQ0a2RmOWhl" target="_blank" class="social-link" title="Instagram">
-                            <i class="ph-fill ph-instagram-logo"></i>
-                        </a>
-                        <a href="https://google.com/search?q=muhammed+jamal+software+engineer" target="_blank" class="social-link" title="Web Search">
-                            <i class="ph-fill ph-google-logo"></i>
-                        </a>
-                    </div>
                 </div>
 
-                <div class="home-image reveal">
-                    <div class="image-wrapper">
-                        <!-- We use an abstract 3D shape or avatar structure here to make it look premium -->
-                        <div class="hero-shape-container">
-                             <div class="hero-circle"></div>
-                             <div class="hero-circle-2"></div>
-                             <div class="floating-badge badge-1">
-                                <i class="ph-fill ph-code"></i>
-                                <span>MERN Stack</span>
-                             </div>
-                             <div class="floating-badge badge-2">
-                                <i class="ph-fill ph-terminal-window"></i>
-                                <span>.NET Core</span>
-                             </div>
-                             <div class="floating-badge badge-3">
-                                <i class="ph-fill ph-microphone-stage"></i>
-                                <span>Public Speaking</span>
-                             </div>
-                        </div>
-                    </div>
+                <!-- Social strip -->
+                <div class="scroll-hero__social" id="heroSocial">
+                    <a href="https://linkedin.com/in/muhammedjamal" target="_blank" class="social-link" title="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+                    <a href="https://github.com/hashirmpalliyath-pixel" target="_blank" class="social-link" title="GitHub"><i class="ph-fill ph-github-logo"></i></a>
+                    <a href="https://www.instagram.com/__j4mlu__?igsh=YTl1MDQ0a2RmOWhl" target="_blank" class="social-link" title="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
                 </div>
+
+                <!-- Scroll indicator -->
+                <div class="scroll-hero__indicator" id="heroIndicator">
+                    <span>Scroll</span>
+                    <div class="scroll-pill"><div class="scroll-pill__dot"></div></div>
+                </div>
+
+                <!-- Progress bar -->
+                <div class="scroll-hero__progress" id="heroProgress"></div>
             </div>
-            
-            <a href="#skills" class="scroll-down">
-                <i class="ph ph-mouse scroll-mouse"></i>
-                <span>Scroll Down</span>
-                <i class="ph ph-arrow-down scroll-arrow"></i>
-            </a>
         </section>
+
+        <!-- Anchor for "View My Work" button -->
+        <div id="main-content"></div>
 
         <!-- Skills Section -->
         <section class="skills section" id="skills">
