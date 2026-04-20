@@ -60,7 +60,26 @@ document.addEventListener('mousemove', function parallax(e){
     });
 });
 
-/*==================== SMOOTH SCROLL ====================*/
+/*==================== SMOOTH SCROLL (LENIS) ====================*/
+const lenis = new Lenis({
+  duration: 1.5, // Smooth, cinematic duration
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+  direction: 'vertical',
+  gestureDirection: 'vertical',
+  smooth: true,
+  mouseMultiplier: 1, // Standard wheel response
+  smoothTouch: false,
+  touchMultiplier: 2,
+  infinite: false,
+});
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
+
 document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', function(e){
         const targetId = this.getAttribute('href');
@@ -68,9 +87,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         const targetEl = document.querySelector(targetId);
         if(targetEl){
             e.preventDefault();
-            const headerH = document.querySelector('.header')?.offsetHeight || 64;
-            const pos = targetEl.getBoundingClientRect().top + window.pageYOffset - headerH;
-            window.scrollTo({ top: pos, behavior: 'smooth' });
+            lenis.scrollTo(targetEl, { offset: -64 });
             document.getElementById('nav-menu')?.classList.remove('show-menu');
         }
     });
@@ -135,8 +152,8 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
         // --- Overlay: darken as we scroll (adds extra tint layer) ---
         if(heroOverlay){
-            const extraOpacity = lerp(0, 0.45, easeOut(progress));
-            heroOverlay.style.backgroundColor = `rgba(7,7,14,${extraOpacity})`;
+            const extraOpacity = lerp(0, 0.75, easeOut(progress));
+            heroOverlay.style.backgroundColor = `rgba(0,0,0,${extraOpacity})`;
         }
 
         // --- Text block: parallax upward at 2× scroll speed ---
